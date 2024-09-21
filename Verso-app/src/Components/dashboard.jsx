@@ -1,5 +1,6 @@
 
-const Acout = () => {
+
+function dashboard() {
     return (
         <div>
             
@@ -7,4 +8,4 @@ const Acout = () => {
     )
 }
 
-export default Acout 
+export default dashboard
