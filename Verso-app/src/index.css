@@ -8,11 +8,11 @@ body{
     background-color: #191919; 
 }
 
-/* .Color{
+.Color{
     background-color: #b3b3b314;
-    filter: blur(4px);
-} */
-
+    filter: blur(6px);
+    z-index: 0;
+}
 .TextNavColor{
     color: #cbee00;
     /* border:#cbee00; */
@@ -29,3 +29,16 @@ body{
     justify-items: center;
     justify-content: center;
 }
+.EditProfileCard{
+    margin: 10%;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+}
+/* .ImgNav{
+    
+}
+.TextNav{
+    
+} */
+

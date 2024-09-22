@@ -45,42 +45,41 @@ const Nav = () => {
       </div>
     </>
   );
+
+
   return (
     <nav className="Color">
       <div className="h-10vh flex justify-between z-50 lg:py-5 px-20 py-4 items-center TextNavColor">
         <div className="flex items-center flex-1">
-          <img
-            className="w-[70px]"
-            src="./src/Verso-img/V-removebg-preview.png"
-          ></img>
+          <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png"></img>
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10">
             <ul className="flex gap-8 mr-16 text-[18px]">
               <Links spy={true} smooth={true} to="Home">
                 <Link to="/">
-                  <li className="hover:text-zinc-800 transition border-b-2 border-grey-200 hover:border-gray-900  cursor-pointer">
+                  <li className="hover:text-zinc-800 transition border-b-2 border-grey-200 hover:border-gray-900 cursor-pointer TextNav">
                     Home
                   </li>
                 </Link>
               </Links>
               <Links spy={true} smooth={true} to="Acout">
                 <Link to="/account">
-                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900  cursor-pointer">
+                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900 cursor-pointer TextNav">
                     Account
                   </li>
                 </Link>
               </Links>
               <Links spy={true} smooth={true} to="About">
                 <Link to="about">
-                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900  cursor-pointer">
+                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900 cursor-pointer TextNav">
                     About
                   </li>
                 </Link>
               </Links>
               <Links spy={true} smooth={true} to="Service">
                 <Link to="/service">
-                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900 cursor-pointer">
+                  <li className="hover:text-  transition border-b-2 border-grey-200 hover:border-gray-900 cursor-pointer TextNav">
                     Service
                   </li>
                 </Link>
