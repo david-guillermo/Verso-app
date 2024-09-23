@@ -1,63 +1,55 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types'; 
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ onLoginSuccess }) => {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find((u) => u.email === email && u.password === password);
+    const user = JSON.parse(localStorage.getItem('user'));
+    const adminUser = {
+      username: 'JuanitoAlimaña',
+      email: 'juanitoAlimaña@maña.com',
+      password: 'Dinero123##',
+    };
 
-    if (user) {
-      user.isLoggedIn = true;
-      localStorage.setItem('users', JSON.stringify(users));
-      onLoginSuccess();
-      navigate('/account');
+    if (email === adminUser.email && password === adminUser.password) {
+      navigate('/AdminDashboard');
+    } else if (user && user.email === email && user.password === password) {
+      navigate('/editProfile');
     } else {
-      setError('Credenciales incorrectas');
+      alert('Invalid credentials');
     }
   };
 
   return (
-  <div className="LoginCard">
-    <div className="p-4 bg-white shadow-lg rounded-md w-full max-w-sm">
-      <h2 className="text-xl font-bold mb-4">Login</h2>
-      <input
-        type="email"
-        className="w-full mb-2 p-2 border"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        className="w-full mb-2 p-2 border"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p className="text-red-500">{error}</p>}
-      <button className="w-full bg-blue-500 text-white py-2 mt-4" onClick={handleLogin}>
-        Iniciar sesión
-      </button>
-      <p className="mt-4">
-        ¿No tienes cuenta?{' '}
-        <Link to="/register" className="text-blue-500 hover:underline">
-          Regístrate aquí
-        </Link>
-      </p>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-8">Login</h1>
+      <div className="flex flex-col w-1/3 space-y-4">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        <button
+          onClick={handleLogin}
+          className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
+        >
+          Login
+        </button>
+      </div>
     </div>
-  </div>
   );
-};
-
-
-Login.propTypes = {
-  onLoginSuccess: PropTypes.func.isRequired, 
-};
+}
 
 export default Login;

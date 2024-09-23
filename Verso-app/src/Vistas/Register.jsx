@@ -1,67 +1,53 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types'; 
 
-const Register = ({ onRegisterSuccess }) => {
-  const [name, setName] = useState('');
+function Register() {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const userExists = users.some((user) => user.email === email);
-
-    if (userExists) {
-      setError('Ya existe una cuenta con este email');
-      return;
-    }
-
-    const newUser = { name, email, password, isLoggedIn: true };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    onRegisterSuccess(); // Llamar a la función de éxito de registro
-    navigate('/account');
+    const userData = { username, email, password, rol:"user", registeredAt: new Date().toISOString() };
+    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('hasVisited', 'true');
+    navigate('/editProfile');
   };
 
   return (
-  <div className="RegisterCard">
-    <div className="p-4 bg-white shadow-lg rounded-md w-full max-w-sm">
-      <h2 className="text-xl font-bold mb-4">Registro</h2>
-      <input
-        type="text"
-        className="w-full mb-2 p-2 border"
-        placeholder="Nombre"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        className="w-full mb-2 p-2 border"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        className="w-full mb-2 p-2 border"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {error && <p className="text-red-500">{error}</p>}
-      <button className="w-full bg-blue-500 text-white py-2 mt-4" onClick={handleRegister}>
-        Registrarse
-      </button>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-8">Register</h1>
+      <div className="flex flex-col w-1/3 space-y-4">
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        <button
+          onClick={handleRegister}
+          className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
+        >
+          Register
+        </button>
+      </div>
     </div>
-  </div>
   );
-};
-
-
-Register.propTypes = {
-  onRegisterSuccess: PropTypes.func.isRequired,
-};
+}
 
 export default Register;

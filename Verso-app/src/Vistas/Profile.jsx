@@ -1,6 +1,4 @@
-
-
-function dashboard() {
+function Profile() {
     return (
         <div>
             
@@ -8,4 +6,4 @@ function dashboard() {
     )
 }
 
-export default dashboard
+export default Profile

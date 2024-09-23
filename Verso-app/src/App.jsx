@@ -8,6 +8,14 @@ import Service from "./Vistas/Services";
 import Register from "./Vistas/Register";
 import Login from "./Vistas/Login";
 import EditProfile from "./Vistas/EditProfile";
+// import UserCard from "./Components/UserCard";
+// import UserList from "./Components/UserList";
+import Profile from "./Vistas/Profile"; 
+import AdminDashboard from "./Components/AdminDashboard";
+import NavJS from "./Components/NavJS";
+import AccountJS from "./Components/AccountJS";
+import EditProfileJS from "./Components/EditProfileJS";
+import Crud from "./Components/Crud";
 
 const App = () => {
   return (
@@ -21,6 +29,14 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/editprofile" element={<EditProfile />} />
+        {/* <Route path="/usercard" element={<UserCard />} /> */}
+        {/* <Route path="/userlist" element={<UserList />} /> */}
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route path="/navjs" element={<NavJS />} />
+        <Route path="/accountjs" element={<AccountJS />} />
+        <Route path="/editprofilejs" element={<EditProfileJS />} />
+        <Route path="/crud" element={<Crud />} />
       </Routes>
       <Footer/>
     </>

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '@fontsource-variable/oswald';
 /* https://coolors.co/5500ff-cbee00-2a2e2e-191919-c0c0c0-ffffff paleta de colores */
 
 /*estilo de body>#191919* estilo de text>#cbee00 */
@@ -8,10 +9,8 @@ body{
     background-color: #191919; 
 }
 
-.Color{
-    background-color: #b3b3b314;
-    filter: blur(6px);
-    z-index: 0;
+.Color{ 
+    background-color: #636363a8;
 }
 .TextNavColor{
     color: #cbee00;
@@ -35,10 +34,14 @@ body{
     justify-items: center;
     justify-content: center;
 }
-/* .ImgNav{
-    
+.FontNombreDeUsuario{
+    font-size: 22px;
+    font-family: 'Oswald Variable', sans-serif
 }
-.TextNav{
-    
-} */
-
+.FontPais{
+    font-size: 14px;
+    font-family: 'Oswald Variable', sans-serif
+}
+.FontComentario{
+    font-family: 'Oswald Variable', sans-serif;
+}

@@ -1,55 +1,59 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const EditProfile = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  // Aqui cargo el perfil del usuario actual
-  useEffect(() => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const currentUser = users.find((u) => u.isLoggedIn);
-    if (currentUser) {
-      setName(currentUser.name);
-      setEmail(currentUser.email);
-    }
-  }, []);
+function EditProfile() {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const [username, setUsername] = useState(user ? user.username : '');
+  const [email, setEmail] = useState(user ? user.email : '');
+  const [password, setPassword] = useState(user ? user.password : '');
+  const navigate = useNavigate();
 
   const handleSave = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const updatedUsers = users.map((user) => {
-      if (user.isLoggedIn) {
-        return { ...user, name, email }; // Actualizar el perfil
-      }
-      return user;
-    });
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
-    alert('Perfil actualizado');
+    const updatedUser = { ...user, username, email, password };
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+    navigate('/');
   };
 
   return (
-  <div className="EditProfileCard">
-    <div className="p-4 bg-white shadow-lg rounded-md w-full max-w-sm">
-      <h2 className="text-xl font-bold mb-4">Editar Perfil</h2>
-      <input
-        type="text"
-        className="w-full mb-2 p-2 border"
-        placeholder="Nombre"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        className="w-full mb-2 p-2 border"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button className="w-full bg-blue-500 text-white py-2 mt-4" onClick={handleSave}>
-        Guardar cambios
-      </button>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-8">Welcome, {user ? user.username : 'User'}!</h1>
+      <div className="flex flex-col w-1/3 space-y-4">
+        <div>
+          <label className="block mb-2">Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            className="p-2 border border-gray-300 rounded w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className="p-2 border border-gray-300 rounded w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            className="p-2 border border-gray-300 rounded w-full"
+          />
+        </div>
+        <button
+          onClick={handleSave}
+          className="bg-green-500 text-white py-2 rounded hover:bg-green-600 transition duration-300"
+        >
+          Save Changes
+        </button>
+      </div>
     </div>
-  </div>
   );
-};
+}
 
 export default EditProfile;

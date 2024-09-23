@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import UserCard from '../Components/UserCard';
+import UserCard from './UserCard';
 
 const comments = [
 "La vida es lo que sucede mientras estás ocupado haciendo otros planes.",
@@ -78,7 +78,7 @@ const getRandomComment = () => {
 return comments[Math.floor(Math.random() * comments.length)];
 };
 
-const Home = () => {
+const UserList = () => {
 const [users, setUsers] = useState([]);
 
 useEffect(() => {
@@ -114,4 +114,4 @@ return (
 );
 };
 
-export default Home;
+export default UserList;
