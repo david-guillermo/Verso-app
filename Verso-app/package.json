@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource-variable/oswald": "^5.1.0",
+    "@fontsource/alfa-slab-one": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
     "aos": "^3.0.0-beta.6",
     "react": "^18.3.1",

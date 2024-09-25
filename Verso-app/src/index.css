@@ -1,18 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '@fontsource-variable/oswald';
+@import '@fontsource/alfa-slab-one';
+
+/* @import '@fontsource-variable/oswald'; */
 /* https://coolors.co/5500ff-cbee00-2a2e2e-191919-c0c0c0-ffffff paleta de colores */
 
 /*estilo de body>#191919* estilo de text>#cbee00 */
 body{
-    background-color: #191919; 
+    background-color: #171717; /* bg-neutral-950 */
+    background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), rgba(255, 255, 255, 0));
+    
 }
 
 .Color{ 
     background-color: #636363a8;
 }
 .TextNavColor{
+    font-family: "Alfa Slab One";
+    font-size: 18px;
     color: #cbee00;
     /* border:#cbee00; */
 }
@@ -35,13 +41,25 @@ body{
     justify-content: center;
 }
 .FontNombreDeUsuario{
-    font-size: 22px;
-    font-family: 'Oswald Variable', sans-serif
+    font-size: 18px;
+    font-family: "Alfa Slab One";
 }
 .FontPais{
     font-size: 14px;
-    font-family: 'Oswald Variable', sans-serif
+    font-family: "Alfa Slab One";
 }
 .FontComentario{
-    font-family: 'Oswald Variable', sans-serif;
+    font-size: 12px;
+    
+}
+
+.UserCard{
+    background-color: rgba(240, 248, 255, 0.263);
+    box-shadow: 0 8px 10px rgba(236, 236, 236, 0.352); 
+    border-radius: 18px;
+}
+.UserCard:hover{
+    background-color: #caee00b8;
+    box-shadow: 0 10px 15px #cbee00;
+    transition: 0.8s;
 }

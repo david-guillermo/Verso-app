@@ -37,8 +37,7 @@ return (
             <td className="px-4 py-2 border">
                 <button
                 onClick={() => handleDelete(user.email)}
-                className="bg-red-400 text-white py-1 px-4 rounded hover:bg-red-600 transition duration-500"
-                >
+                className="bg-red-400 text-white py-1 px-4 rounded hover:bg-red-600 transition duration-500">
                 Delete
                 </button>
             </td>

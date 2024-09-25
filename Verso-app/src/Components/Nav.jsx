@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   const [click, setClick] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-
   const handleClick = () => setClick(!click);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const Nav = () => {
     // Verificar qué se está almacenando en localStorage
     console.log('Datos de usuario en localStorage:', user);
 
-    if (user && user.email === 'junitoAlimaña@maña.com') {
+    if (user && user.email === 'juanitoAlimaña@maña.com') {
       console.log('El usuario es JuanitoAlimaña (admin)');
       setIsAdmin(true);
     } else {
@@ -30,7 +29,7 @@ const Nav = () => {
   const content = (
     <>
       <div className="lg:hidden block top-16 w-full left-0 right-0 transition z-50">
-        <ul className="text-center text-xl p-20">
+        <ul className="text-center p-20">
           <Links spy={true} smooth={true} to="Home">
             <Link to="/">
               <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
@@ -69,7 +68,9 @@ const Nav = () => {
               </Link>
             </Links>
           )}
-          <button className="TemaClaro&Oscuro">{<BiAdjust />}</button>
+          <div className="TemaClaroOscuro">
+            <button className="">{<BiAdjust />}</button>
+          </div>
         </ul>
       </div>
     </>
@@ -83,7 +84,7 @@ const Nav = () => {
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10">
-            <ul className="flex gap-8 mr-16 text-[18px] ">
+            <ul className="flex gap-8 mr-16">
               <Links spy={true} smooth={true} to="Home">
                 <Link to="/">
                   <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
@@ -122,7 +123,9 @@ const Nav = () => {
                   </Link>
                 </Links>
               )}
-              <button className="TemaClaro&Oscuro">{<BiAdjust />}</button>
+              <div className="TemaClaroOscuro">
+                <button className="">{<BiAdjust />}</button>  
+              </div>
             </ul>
           </div>
         </div>

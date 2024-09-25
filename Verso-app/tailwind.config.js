@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'], 
+        alfa: ['"Alfa Slab One"', 'sans-serif'], 
       },
     },
   },
