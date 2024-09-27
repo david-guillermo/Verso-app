@@ -8,13 +8,11 @@
 
 /*estilo de body>#191919* estilo de text>#cbee00 */
 body{
-    background-color: #171717; /* bg-neutral-950 */
-    background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), rgba(255, 255, 255, 0));
-    
+    background-color: #191919;
 }
 
 .Color{ 
-    background-color: #636363a8;
+    background-color: #ffffff00;
 }
 .TextNavColor{
     font-family: "Alfa Slab One";
@@ -49,17 +47,51 @@ body{
     font-family: "Alfa Slab One";
 }
 .FontComentario{
-    font-size: 12px;
-    
+    font-weight: 600;
+    font-size: 13px;
+    font-family:'Courier New', Courier, monospace;
 }
-
 .UserCard{
-    background-color: rgba(240, 248, 255, 0.263);
-    box-shadow: 0 8px 10px rgba(236, 236, 236, 0.352); 
+    /* background-color: rgba(240, 248, 255, 0);
+    box-shadow: 0 8px 10px rgba(255, 255, 255, 0.01); */
+    border-style: solid;
+    border: azure;
     border-radius: 18px;
 }
 .UserCard:hover{
     background-color: #caee00b8;
     box-shadow: 0 10px 15px #cbee00;
-    transition: 0.8s;
+    transition: 1.5s;
+}
+.UserCard:hover .CardHoverText{
+    color: #3a3a3a;
+    transition: ease-in-out;
+}
+.Card{
+    margin-top: 8%;
+    display: flex;
+    justify-content:center;
+    justify-items: center;
+}
+.CardStyle{
+    border-radius: 35px;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(240, 248, 255, 0.263);
+}
+.CardStyle:hover{
+    background-color: #caee00b8;
+    box-shadow: 0 10px 15px #cbee00;
+    transition: 600ms;
+}
+.TitleVerso{
+    margin-top: 7%;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    font-family:  "Alfa Slab One";
+    color: #3a3a3a;
+}
+.ContentVerso{
+    margin: 8%;
 }
