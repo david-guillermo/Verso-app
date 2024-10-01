@@ -1,45 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-function AdminDashboard() {
+function UserTable() {
 const [users, setUsers] = useState([]);
 
 useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-    setUsers([user]);
-    }
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    setUsers(storedUsers);
 }, []);
 
-const handleDelete = (email) => {
-    const updatedUsers = users.filter(user => user.email !== email);
-    setUsers(updatedUsers);
-    localStorage.removeItem('user');
+const deleteUser = (email) => {
+    const filteredUsers = users.filter((user) => user.email !== email);
+    setUsers(filteredUsers);
+    localStorage.setItem('users', JSON.stringify(filteredUsers));
 };
 
 return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400">
-    <h1 className="text-4xl font-bold mb-10">Admin Dashboard</h1>
-    <table className="table-auto bg-white shadow-lg rounded-lg w-2/2">
+    <div className="max-w-2xl mx-auto mt-10 justify-center items-center">
+    <h2 className="text-2xl font-semibold mb-4 flex justify-center items-center font-alfa text-slate-200">User List</h2>
+    <table className="w-full h-52 table-auto shadow-md rounded-lg">
         <thead>
-        <tr>
-            <th className="px-4 py-2 border">Username</th>
-            <th className="px-4 py-2 border">Email</th>
-            <th className="px-4 py-2 border">Date Registered</th>
-            <th className="px-4 py-2 border">Actions</th>
+        <tr className="text-zinc-900 TOPCRUD">
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Email</th>
+            <th className="px-4 py-2">Actions</th>
         </tr>
         </thead>
         <tbody>
-        {users.map(user => (
-            <tr key={user.email} className="text-center">
-            <td className="px-4 py-2 border">{user.username}</td>
-            <td className="px-4 py-2 border">{user.email}</td>
-            <td className="px-4 py-2 border">{new Date(user.registeredAt).toLocaleDateString()}</td>
-            <td className="px-4 py-2 border">
-                <button
-                onClick={() => handleDelete(user.email)}
-                className="bg-red-400 text-white py-1 px-4 rounded hover:bg-red-600 transition duration-500">
-                Delete
-                </button>
+        {users.map((user, index) => (
+            <tr key={index} className="text-center border-t text-slate-200">
+            <td className="px-4 py-2">{user.name}</td>
+            <td className="px-4 py-2">{user.email}</td>
+            <td className="px-4 py-2">
+                <button onClick={() => deleteUser(user.email)} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"> Delete User</button>
             </td>
             </tr>
         ))}
@@ -49,4 +41,4 @@ return (
 );
 }
 
-export default AdminDashboard;
+export default UserTable;

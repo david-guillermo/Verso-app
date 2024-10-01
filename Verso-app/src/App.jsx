@@ -11,10 +11,10 @@ import EditProfile from "./Vistas/EditProfile";
 // import UserCard from "./Components/UserCard";
 // import UserList from "./Components/UserList";
 import Profile from "./Vistas/Profile"; 
-import AdminDashboard from "./Components/AdminDashboard";
-import NavJS from "./Components/NavJS";
+// import AdminDashboard from "./Components/AdminDashboard";
+// import NavJS from "./Components/NavJS";
 import EditProfileJS from "./Components/EditProfileJS";
-// import Crud from "./Components/Crud";
+import Crud from "./Vistas/Crud";
 
 const App = () => {
   return (
@@ -31,10 +31,10 @@ const App = () => {
         {/* <Route path="/usercard" element={<UserCard />} /> */}
         {/* <Route path="/userlist" element={<UserList />} /> */}
         <Route path="/profile" element={<Profile />} />
-        <Route path="/admindashboard" element={<AdminDashboard />} />
-        <Route path="/navjs" element={<NavJS />} /> 
+        {/* <Route path="/admindashboard" element={<AdminDashboard />} /> */}
+        {/* <Route path="/navjs" element={<NavJS />} />  */}
         <Route path="/editprofilejs" element={<EditProfileJS />} />
-        {/* <Route path="/crud" element={<Crud />} /> */}
+        <Route path="/crud" element={<Crud />} />
       </Routes>
       <Footer/>
     </>

@@ -6,7 +6,7 @@
 /* @import '@fontsource-variable/oswald'; */
 /* https://coolors.co/5500ff-cbee00-2a2e2e-191919-c0c0c0-ffffff paleta de colores */
 
-/*estilo de body>#191919* estilo de text>#cbee00 */
+/* estilo de body>#191919* estilo de text>#cbee00 */
 body{
     background-color: #191919;
 }
@@ -39,25 +39,28 @@ body{
     justify-content: center;
 }
 .FontNombreDeUsuario{
-    font-size: 18px;
+    font-size: 20px;
     font-family: "Alfa Slab One";
 }
 .FontPais{
-    font-size: 14px;
+    font-size: 18px;
     font-family: "Alfa Slab One";
 }
 .FontComentario{
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     font-family:'Courier New', Courier, monospace;
 }
 .UserCard{
     /* background-color: rgba(240, 248, 255, 0);
     box-shadow: 0 8px 10px rgba(255, 255, 255, 0.01); */
+    border: rgba(240, 255, 255, 0.419);
     border-style: solid;
-    border: azure;
     border-radius: 18px;
 }
+/* .CardHoverText{
+    font-size: 18px;
+} */
 .UserCard:hover{
     background-color: #caee00b8;
     box-shadow: 0 10px 15px #cbee00;
@@ -74,15 +77,17 @@ body{
     justify-items: center;
 }
 .CardStyle{
-    border-radius: 35px;
     width: 50%;
     height: 50%;
-    background-color: rgba(240, 248, 255, 0.263);
+    border: #ededed62;
+    border-radius: 35px;
+    border-style: double;
+    background-color: rgba(240, 248, 255, 0);
 }
 .CardStyle:hover{
     background-color: #caee00b8;
     box-shadow: 0 10px 15px #cbee00;
-    transition: 600ms;
+    transition: 1.5s;
 }
 .TitleVerso{
     margin-top: 7%;
@@ -90,8 +95,30 @@ body{
     display: flex;
     justify-content: center;
     font-family:  "Alfa Slab One";
-    color: #3a3a3a;
+    color: #ffffff;
 }
 .ContentVerso{
     margin: 8%;
+}
+.TextVerso{
+    color: #cbee00;
+    font-weight: 900;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+}
+.CardStyle:hover .HoverAcout{
+    color: #4B0082;
+    transition: 1.5s;
+}
+.BotonStyle{
+    background-color: #caee00b8;
+    box-shadow: 0 10px 15px #cbee00;
+    transition: 1.5s;
+}
+.TOPCRUD{
+    height: 70px;
+    border-radius: 20px;
+    background-color: #caee00b8;
+    box-shadow: 0 15px 18px #cbee00;
+    transition: 1.5s;
 }

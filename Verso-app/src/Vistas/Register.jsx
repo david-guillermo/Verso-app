@@ -1,54 +1,40 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function Register() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [user, setUser] = useState({ name: '', email: '', password: '' });
 
-  const handleRegister = () => {
-    const userData = { username, email, password, rol:"user", registeredAt: new Date().toISOString() };
-    localStorage.setItem('user', JSON.stringify(userData));
-    localStorage.setItem('hasVisited', 'true');
-    navigate('/editProfile');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addUserToLocalStorage(user);
+  };
+
+  const addUserToLocalStorage = (newUser) => {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
   };
 
   return (
-  <div>
-    <div className="flex flex-col items-center justify-center h-96 mt-0">
-      <h1 className="text-4xl font-bold mb-8 text-slate-200">Register</h1>
-      <div className="flex flex-col w-1/2 space-y-5">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          className="p-2 border border-gray-300 rounded"
-        />
-        <button
-          onClick={handleRegister}
-          className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300"
-        >
-          Register
-        </button>
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10 p-10 shadow-md">
+      <h2 className="text-3xl mb-6 text-center font-alfa text-slate-200">Register</h2>
+      <div className="mb-4">
+        <input type="text" name="name" placeholder="Name" value={user.name} onChange={handleChange} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-4 focus:ring-green-500"/>
       </div>
-    </div>
-  </div>
+      <div className="mb-4">
+        <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-4 focus:ring-green-500"/>
+      </div>
+      <div className="mb-4">
+        <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-4 focus:ring-green-500"/>
+      </div>
+      <button type="submit" className="w-full text-zinc-900 py-2 rounded-md font-mono font-bold BotonStyle">
+        Register
+      </button>
+    </form>
   );
 }
 

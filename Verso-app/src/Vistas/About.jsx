@@ -2,9 +2,9 @@ const AboutCard = () => {
 return (
     <div className="Card">
         <div className="CardStyle">
-            <h1 className="TitleVerso">Verso</h1>
+            <h1 className="TitleVerso HoverAcout">Verso</h1>
             <div className="ContentVerso">
-                <p className="TextVerso">En Verso, la palabra toma vida, y cada publicación se convierte en
+                <p className="TextVerso HoverAcout">En Verso, la palabra toma vida, y cada publicación se convierte en
                 una obra de arte digital. Imagina compartir tu poesía, reseñar tu
                 álbum favorito, o iniciar una conversación sobre las últimas
                 tendencias culturales. Aquí, la comunidad se nutre de la

@@ -61,7 +61,7 @@ const Nav = () => {
           {/* Mostrar CRUD solo si es admin */}
           {isAdmin && (
             <Links spy={true} smooth={true} to="CRUD">
-              <Link to="/AdminDashboard">
+              <Link to="/Crud">
                 <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
                   CRUD
                 </li>
@@ -116,7 +116,7 @@ const Nav = () => {
               {/* Mostrar CRUD solo si es admin */}
               {isAdmin && (
                 <Links spy={true} smooth={true} to="CRUD">
-                  <Link to="/AdminDashboard">
+                  <Link to="/Crud">
                     <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
                       CRUD
                     </li>

@@ -12,7 +12,7 @@ return (
                     {/* País */}
                     <p className="text-gray-500 mb-2 FontPais CardHoverText">{country}</p>
                     {/* Comentario */}
-                    <p className="text-sm text-gray-200 text-center FontComentario CardHoverText">{comment}</p>
+                    <p className="text-gray-200 text-center FontComentario CardHoverText">{comment}</p>
                 </div>
             </div>
         </div>
