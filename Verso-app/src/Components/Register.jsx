@@ -1,8 +1,16 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
+const Register = ({ onRegister }) => {
 
-const EditProfile = ({ userData, onUpdate }) => {
-  const [formData, setFormData] = useState(userData);
+Register.propTypes = {
+  onRegister: PropTypes.func.isRequired,
+};
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
   const handleChange = (e) => {
     setFormData({
@@ -13,13 +21,13 @@ const EditProfile = ({ userData, onUpdate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Llama a la función onUpdate que se pasó como prop desde Account
-    onUpdate(formData);
+    onRegister(formData);
+    setFormData({ name: '', email: '', password: '' });
   };
 
   return (
     <div>
-      <h2>Edit Profile</h2>
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
@@ -48,10 +56,10 @@ const EditProfile = ({ userData, onUpdate }) => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Update Profile</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 };
 
-export default EditProfile;
+export default Register;

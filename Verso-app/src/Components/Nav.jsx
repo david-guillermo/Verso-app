@@ -13,10 +13,8 @@ const Nav = () => {
   useEffect(() => {
     // Verifica si el usuario logueado es "JuanitoAlimaña"
     const user = JSON.parse(localStorage.getItem('user'));
-
     // Verificar qué se está almacenando en localStorage
     console.log('Datos de usuario en localStorage:', user);
-
     if (user && user.email === 'juanitoAlimaña@maña.com') {
       console.log('El usuario es JuanitoAlimaña (admin)');
       setIsAdmin(true);
@@ -51,14 +49,6 @@ const Nav = () => {
               </li>
             </Link>
           </Links>
-          {/* <Links spy={true} smooth={true} to="Service">
-            <Link to="/service">
-              <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
-                Service
-              </li>
-            </Link>
-          </Links> */}
-          {/* Mostrar CRUD solo si es admin */}
           {isAdmin && (
             <Links spy={true} smooth={true} to="CRUD">
               <Link to="/Crud">
@@ -69,7 +59,7 @@ const Nav = () => {
             </Links>
           )}
           <div className="TemaClaroOscuro">
-            <button className="">{<BiAdjust />}</button>
+            <button className=""><BiAdjust size={30} /></button>
           </div>
         </ul>
       </div>
@@ -77,7 +67,7 @@ const Nav = () => {
   );
 
   return (
-    <nav className="Color">
+    <nav className="bg-[#ffffff00]">
       <div className="h-10vh flex justify-between lg:py-5 px-20 py-4 items-center TextNavColor">
         <div className="flex items-center flex-1">
           <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png" alt="Logo"></img>
@@ -106,14 +96,6 @@ const Nav = () => {
                   </li>
                 </Link>
               </Links>
-              {/* <Links spy={true} smooth={true} to="Service">
-                <Link to="/service">
-                  <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
-                    Service
-                  </li>
-                </Link>
-              </Links> */}
-              {/* Mostrar CRUD solo si es admin */}
               {isAdmin && (
                 <Links spy={true} smooth={true} to="CRUD">
                   <Link to="/Crud">
@@ -124,7 +106,7 @@ const Nav = () => {
                 </Links>
               )}
               <div className="TemaClaroOscuro">
-                <button className="">{<BiAdjust />}</button>  
+                <button className=""><BiAdjust size={30} /></button>
               </div>
             </ul>
           </div>
