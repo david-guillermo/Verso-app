@@ -30,21 +30,21 @@ const Nav = () => {
         <ul className="text-center p-20">
           <Links spy={true} smooth={true} to="Home">
             <Link to="/">
-              <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
                 Home
               </li>
             </Link>
           </Links>
           <Links spy={true} smooth={true} to="Acout">
             <Link to="/account">
-              <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
                 Account
               </li>
             </Link>
           </Links>
           <Links spy={true} smooth={true} to="/about">
             <Link to="/about">
-              <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
                 About
               </li>
             </Link>
@@ -52,7 +52,7 @@ const Nav = () => {
           {isAdmin && (
             <Links spy={true} smooth={true} to="CRUD">
               <Link to="/Crud">
-                <li className="my-4 py-4 border-b border-slate-900 hover:bg-zinc-800 hover:rounded">
+                <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
                   CRUD
                 </li>
               </Link>
@@ -68,9 +68,9 @@ const Nav = () => {
 
   return (
     <nav className="bg-[#ffffff00]">
-      <div className="h-10vh flex justify-between lg:py-5 px-20 py-4 items-center TextNavColor">
-        <div className="flex items-center flex-1">
-          <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png" alt="Logo"></img>
+      <div className="h-10vh flex justify-between lg:py-5 px-20 py-4 items-center relative TextNavColor">
+        <div className={`flex items-center flex-1 ${click && "absolute top-4 left-20"}`}>
+          <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png " alt="Logo"></img>
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10">
@@ -112,8 +112,8 @@ const Nav = () => {
           </div>
         </div>
         <div>{click && content}</div>
-        <button className="block sm:hidden transition" onClick={handleClick}>
-          {click ? <FaTimes /> : <CiMenuFries />}
+        <button className={`block sm:hidden transition  ${click && "absolute top-10 right-20"}`} onClick={handleClick}>
+          {click ? <FaTimes size={35} /> : <CiMenuFries size={30} />}
         </button>
       </div>
     </nav>

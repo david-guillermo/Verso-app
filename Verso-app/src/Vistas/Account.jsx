@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Register from "../Components/Register";
-import EditProfile from "../Components/EditProfile";
+import EditProfileJS from "../Components/EditProfileJS";
 
 function Account() {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -29,7 +29,7 @@ function Account() {
   return (
     <div>
       {isRegistered ? (
-        <EditProfile userData={userData} onUpdate={handleProfileUpdate} />
+        <EditProfileJS userData={userData} onUpdate={handleProfileUpdate} />
       ) : (
         <Register onRegister={onRegister} />
       )}
