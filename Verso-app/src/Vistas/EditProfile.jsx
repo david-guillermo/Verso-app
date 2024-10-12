@@ -15,42 +15,34 @@ function EditProfile() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold mb-8">Welcome, {user ? user.username : 'User'}!</h1>
-      <div className="flex flex-col w-1/3 space-y-4">
+    <div className="flex flex-col items-center justify-center mt-20">
+      <h1 className="text-4xl font-alfa mb-8 text-[#9aa046] dark:text-[#cbee00]">
+        Welcome,{' '}
+        <span className="bg-[#a3b388] dark:bg-[#7ea035a5] text-[#686b4d] dark:text-[#e6e6e6] px-2 py-1 rounded-lg">
+          {user ? user.username : 'User'}
+        </span>
+        !
+      </h1>
+      <div className="flex flex-col">
         <div>
-          <label className="block mb-2">Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            className="p-2 border border-gray-300 rounded w-full"
-          />
+          <div className="input-group">
+            <input className="input dark:border dark:border-[#caee0071]" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+            <label className="user-label dark:text-[#ffff]">Username:</label>
+          </div>
+          <div className="input-group">
+            <input className="input dark:border dark:border-[#caee0071]" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+            <label className="user-label dark:text-[#ffff]">Email:</label>
+          </div>
+          <div className="input-group">
+            <input className="input dark:border dark:border-[#caee0071]" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <label className="user-label dark:text-[#ffff]">Password:</label>
+          </div>
+          <div className="flex justify-center items-center">
+            <button onClick={handleSave} className="dark:bg-[#90a323c4] dark:text-white py-2 hover:bg-[#cbee00] w-52 rounded-xl font-mono">
+              Save Changes
+            </button>
+          </div>
         </div>
-        <div>
-          <label className="block mb-2">Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="p-2 border border-gray-300 rounded w-full"
-          />
-        </div>
-        <div>
-          <label className="block mb-2">Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="p-2 border border-gray-300 rounded w-full"
-          />
-        </div>
-        <button
-          onClick={handleSave}
-          className="bg-green-500 text-white py-2 rounded hover:bg-green-600 transition duration-300"
-        >
-          Save Changes
-        </button>
       </div>
     </div>
   );

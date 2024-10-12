@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Link as Links } from "react-scroll";
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
-import { BiAdjust } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Nav = () => {
   const [click, setClick] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+
   const handleClick = () => setClick(!click);
 
   useEffect(() => {
@@ -30,21 +31,21 @@ const Nav = () => {
         <ul className="text-center p-20">
           <Links spy={true} smooth={true} to="Home">
             <Link to="/">
-              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 text-[#a4d43b] dark:border-[#cbee00] dark:hover:bg-zinc-800 dark:hover:rounded">
                 Home
               </li>
             </Link>
           </Links>
           <Links spy={true} smooth={true} to="Acout">
             <Link to="/account">
-              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 text-[#a4d43b] dark:border-[#cbee00] dark:hover:bg-zinc-800 dark:hover:rounded">
                 Account
               </li>
             </Link>
           </Links>
           <Links spy={true} smooth={true} to="/about">
             <Link to="/about">
-              <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
+              <li className="my-4 py-4 text-[#a4d43b] dark:border-[#cbee00] dark:hover:bg-zinc-800 dark:hover:rounded">
                 About
               </li>
             </Link>
@@ -52,14 +53,14 @@ const Nav = () => {
           {isAdmin && (
             <Links spy={true} smooth={true} to="CRUD">
               <Link to="/Crud">
-                <li className="my-4 py-4 border-b border-[#caee0084] hover:bg-zinc-800 hover:rounded">
+                <li className="my-4 py-4 text-[#a4d43b] dark:border-[#cbee00] dark:hover:bg-zinc-800 dark:hover:rounded">
                   CRUD
                 </li>
               </Link>
             </Links>
           )}
           <div className="TemaClaroOscuro">
-            <button className=""><BiAdjust size={30} /></button>
+            <button className=""><ThemeToggle/></button>
           </div>
         </ul>
       </div>
@@ -67,31 +68,31 @@ const Nav = () => {
   );
 
   return (
-    <nav className="bg-[#ffffff00]">
+    <nav className="bg-[#0000]">
       <div className="h-10vh flex justify-between lg:py-5 px-20 py-4 items-center relative TextNavColor">
         <div className={`flex items-center flex-1 ${click && "absolute top-4 left-20"}`}>
-          <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png " alt="Logo"></img>
+          <img className="w-[70px] ImgNav" src="./src/Verso-img/V-removebg-preview.png" alt="Logo"></img>
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10">
             <ul className="flex gap-8 mr-16">
               <Links spy={true} smooth={true} to="Home">
                 <Link to="/">
-                  <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
+                  <li className="text-[#95a72b] border-[#b1b1b1] dark:text-[#93b746] dark:border-[#cbee00] dark:hover:text-[#252525] transition duration-500 border-b-2 border-grey-200 dark:hover:border-neutral-800  TextNav hover:text-[#252525]  border-grey-200 hover:border-neutral-800">
                     Home
                   </li>
                 </Link>
               </Links>
               <Links spy={true} smooth={true} to="Acout">
                 <Link to="/account">
-                  <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
+                  <li className="text-[#95a72b] border-[#b1b1b1] dark:text-[#93b746] dark:border-[#cbee00] dark:hover:text-[#252525] transition duration-500 border-b-2 border-grey-200 dark:hover:border-neutral-800  TextNav hover:text-[#252525]  border-grey-200 hover:border-neutral-800">
                     Account
                   </li>
                 </Link>
               </Links>
               <Links spy={true} smooth={true} to="About">
                 <Link to="/about">
-                  <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
+                  <li className="text-[#95a72b] border-[#b1b1b1] dark:text-[#93b746] dark:border-[#cbee00] dark:hover:text-[#252525] transition duration-500 border-b-2 border-grey-200 dark:hover:border-neutral-800  TextNav hover:text-[#252525]  border-grey-200 hover:border-neutral-800 ">
                     About
                   </li>
                 </Link>
@@ -99,14 +100,14 @@ const Nav = () => {
               {isAdmin && (
                 <Links spy={true} smooth={true} to="CRUD">
                   <Link to="/Crud">
-                    <li className="hover:text-neutral-800 transition duration-500 border-b-2 border-grey-200 hover:border-neutral-800 cursor-pointer TextNav">
+                    <li className="text-[#95a72b] border-[#b1b1b1] dark:text-[#93b746] dark:border-[#cbee00] dark:hover:text-[#252525] transition duration-500 border-b-2 border-grey-200 dark:hover:border-neutral-800  TextNav hover:text-[#252525]  border-grey-200 hover:border-neutral-800 ">
                       CRUD
                     </li>
                   </Link>
                 </Links>
               )}
               <div className="TemaClaroOscuro">
-                <button className=""><BiAdjust size={30} /></button>
+                <button className="text-[#474e21] dark:text-[#cbee00]"><ThemeToggle/></button>
               </div>
             </ul>
           </div>
