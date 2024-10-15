@@ -12,9 +12,7 @@ const Nav = () => {
   const handleClick = () => setClick(!click);
 
   useEffect(() => {
-    // Verifica si el usuario logueado es "JuanitoAlimaña"
     const user = JSON.parse(localStorage.getItem('user'));
-    // Verificar qué se está almacenando en localStorage
     console.log('Datos de usuario en localStorage:', user);
     if (user && user.email === 'juanitoAlimaña@maña.com') {
       console.log('El usuario es JuanitoAlimaña (admin)');
